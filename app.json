@@ -1,0 +1,11 @@
+{
+    "dev": [
+      {
+        "name": "as-logic-standard",
+        "folder": "logic",
+        "rg": "as-logic-rg"
+      }
+                  
+    ]
+
+  }
