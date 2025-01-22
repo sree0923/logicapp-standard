@@ -3,9 +3,6 @@
 
 name: Deploy Logic App. 
 
-env:
-  LA_NAME: 'la-name-324234'
-
 on:
   workflow_dispatch:
       inputs:
@@ -138,4 +135,4 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-          az functionapp deploy --resource-group ${{ matrix.app.rg }} --name ${{ matrix.app.name }} --src-path  logic/azure.parameters.json --type static --target-path parameters.json
+          az functionapp deploy --resource-group ${{ matrix.app.rg }} --name ${{ matrix.app.name }} --src-path  logic/azure.parameters.json --type static --target-path logic/parameters.json
