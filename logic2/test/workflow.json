@@ -1,0 +1,83 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "varhaserror": {
+                "type": "InitializeVariable",
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "haserrors",
+                            "type": "boolean",
+                            "value": false
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "varrunid": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "varrunid": {
+                "type": "InitializeVariable",
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "runid",
+                            "type": "string",
+                            "value": "@parameters('param-string')"
+                        }
+                    ]
+                },
+                "runAfter": {}
+            },
+            "vartest": {
+                "type": "InitializeVariable",
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "test",
+                            "type": "integer",
+                            "value": 10
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "varrunid": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Compose": {
+                "type": "Compose",
+                "inputs": {
+                    "id": "@parameters('param-number')"
+                },
+                "runAfter": {
+                    "varhaserror": [
+                        "SUCCEEDED"
+                    ]
+                }
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "triggers": {
+            "Recurrence": {
+                "type": "Recurrence",
+                "recurrence": {
+                    "interval": 10,
+                    "frequency": "Minute",
+                    "timeZone": "India Standard Time"
+                },
+                "runtimeConfiguration": {
+                    "concurrency": {
+                        "runs": 1
+                    }
+                }
+            }
+        }
+    },
+    "kind": "Stateful"
+}

@@ -1,0 +1,10 @@
+{
+    "param-number": {
+        "type": "Int",
+        "value": 10000
+    },
+    "param-string": {
+        "type": "String",
+        "value": "stringparameter"
+    }
+}

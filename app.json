@@ -4,6 +4,11 @@
         "name": "as-logic-standard",
         "folder": "logic",
         "rg": "as-logic-rg"
+      },
+      {
+        "name": "as-logic-standard2",
+        "folder": "logic2",
+        "rg": "as-logic-rg2"
       }
                   
     ]
