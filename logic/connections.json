@@ -1,17 +1,14 @@
 {
   "managedApiConnections": {
-      "azuretables": {
-          "api": {
-              "id": "/subscriptions/aaa90e47-ff3c-4804-80bd-37b909af5fe0/providers/Microsoft.Web/locations/canadacentral/managedApis/azureblob"
-          },
-          "authentication": {
-              "type": "ManagedServiceIdentity"
-          },
-          "connection": {
-              "id": "/subscriptions/aaa90e47-ff3c-4804-80bd-37b909af5fe0/resourceGroups/as-logic-rg/providers/Microsoft.Web/connections/azureblob"
-          },
-          "connectionRuntimeUrl": "https://4bad5bb636858691.14.common.logic-canadacentral.azure-apihub.net/apim/azuretables/73e2afd1f28247ef942d4c4b53122f4e"
-      }
-  },
-  "serviceProviderConnections": {}
+    "azureblob": {
+      "api": {
+        "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/providers/Microsoft.Web/locations/@appsetting('WORKFLOWS_LOCATION_NAME')/managedApis/azureblob"
+      },
+      "connection": {
+        "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/resourceGroups/@appsetting('WORKFLOWS_RESOURCE_GROUP_NAME')/providers/Microsoft.Web/connections/azureblob"
+      },
+      "connectionRuntimeUrl": "@appsetting('BLOB_CONNECTION_RUNTIMEURL')",
+      "authentication": "@parameters('blob_auth')"
+    }
+  }
 }
