@@ -2,7 +2,9 @@
     "blob_auth": {
         "type":"object", 
         "value": {
-            "type": "ManagedServiceIdentity"
+            "type": "Raw",
+            "scheme": "Key",
+            "parameter": "@appsetting('azureblob-connectionKey')"
         }
     }
 
